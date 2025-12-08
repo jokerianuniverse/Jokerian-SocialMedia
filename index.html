@@ -6,29 +6,41 @@
 <title>Jokerian</title>
 
 <style>
-    /* Use Myriad Pro — if user has it installed */
+    /* Font-face definitions */
     @font-face {
         font-family: "Myriad Pro";
         src: local("Myriad Pro");
     }
+    @font-face {
+        font-family: "Britannic Bold";
+        src: local("Britannic Bold");
+    }
 
+    /* === Standard Desktop/Global Styles === */
     body {
         margin: 0;
         padding: 0;
-
-        /* Background image */
-        background: url("QR background-03-03.jpg") no-repeat center center fixed;
-        background-size: cover;
-
+        min-height: 100vh;
+        
+        /* ✅ Background is set to plain white */
+        background-color: white; 
+        
         font-family: "Myriad Pro", Arial, sans-serif;
-        color: #190635;
+        color: #190635; 
+        box-sizing: border-box; 
     }
 
-    /* LEFT CONTENT AREA */
+    /* LEFT CONTENT AREA - Desktop Focus */
     .left-container {
         padding-top: 60px;
-        padding-left: 180px;
+        padding-left: 180px; 
         max-width: 700px;
+    }
+    
+    .logo-image {
+        width: 400px; 
+        max-width: 100%;
+        height: auto;
     }
 
     h1 {
@@ -36,26 +48,29 @@
         font-weight: 600;
         margin: 0 0 15px 0;
         font-family: "Britannic Bold";
-        padding-left: 30px;
+        padding-left: 30px; 
     }
 
-h6 {
-	        text-align: center;
-margin-top:30px;
-
-}
+    h6 {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    
     p {
         font-size: 25px;
         margin: 0 0 25px 0;
-        padding-left: 30px;
+        padding-left: 30px; 
         max-width: 550px;
         line-height: 1.5;
     }
 
-    /* CENTERED FOLLOW SECTION */
+    /* FOLLOW SECTION */
     .follow-section {
+        width: 100%;
         text-align: center;
         margin-top: 60px;
+        margin-bottom: 60px; 
     }
 
     .follow-section h2 {
@@ -79,16 +94,11 @@ margin-top:30px;
         cursor: pointer;
         text-decoration: none;
         color: white;
-   	display: flex;               /* icon + 	text aligned */
-    	align-items: center;         /* vertical alignment */
-  	gap: 10px;                   /* space between icon & text */
-    	transition: 0.3s;
-}
-
-.btn img {
-    width: 30px;                 /* icon size */
-    height: 25px;
-}
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: 0.3s;
+    }
 
     .instagram {
         background: linear-gradient(45deg, #f9a825, #e91e63, #9c27b0);
@@ -102,14 +112,73 @@ margin-top:30px;
         transform: scale(1.07);
     }
 
-    /* RIGHT IMAGE — centered vertically */
+    /* Right Image is removed from HTML, but hiding its style */
     .right-image {
-        position: fixed;
-        left: 630px;             /* distance from right screen edge */
-        top: 40%;
-        transform: translateY(-50%);   /* perfect vertical center */
-        width: 1000px;            /* bigger size */
-        pointer-events: none;
+        display: none; 
+    }
+
+    /* ======================================
+    💥 MOBILE DEVICE FIXES (Max 768px) 
+    ====================================== 
+    */
+    @media (max-width: 768px) {
+        
+        /* 1. Reset and Center the Main Container */
+        .left-container {
+            padding-top: 30px;
+            padding-left: initial; 
+            padding-right: initial;
+            max-width: 90% !important; 
+            margin: 0 auto; 
+            text-align: center; 
+        }
+        
+        /* 2. Reset and Center Heading and Paragraph Text */
+        h1, p {
+            padding-left: 0 !important; 
+            max-width: 100% !important; 
+            text-align: center !important;
+        }
+        
+        h1 {
+            font-size: 28px;
+        }
+        
+        p {
+            font-size: 18px;
+        }
+
+        .logo-image {
+            width: 80%;
+            margin: 0 auto 15px auto;
+            display: block;
+        }
+
+        /* 3. Follow Section and Buttons (Centering and Stacking) */
+        .follow-section {
+            margin-top: 30px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .btn-row {
+            flex-direction: column; 
+            gap: 15px;
+            align-items: center; 
+        }
+        
+        .btn {
+            width: 90%;
+            max-width: 300px; 
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .right-image {
+            display: none;
+        }
     }
 </style>
 
@@ -117,9 +186,8 @@ margin-top:30px;
 
 <body>
 
-<!-- LEFT SIDE CONTENT -->
 <div class="left-container">
-    <img src="Logosocial media-04-04.png" class="logo-image" alt="Jokerian Visual" style="width:400px;">
+    <img src="Logosocial media-04-04.png" class="logo-image" alt="Jokerian Visual">
 
     <h1>Smart Fun for Every Age<br>Anytime, Anywhere</h1>
 
@@ -129,28 +197,25 @@ margin-top:30px;
     </p>
 </div>
 
-<!-- CENTER WIDE SECTION -->
 <div class="follow-section">
     <h2>FOLLOW US & BE OUR FIRST HERO</h2>
 
 <div class="btn-row">
 
     <a href="https://www.instagram.com/jokerianuniverse/" class="btn instagram">
-        <img src="Insta-05.png" alt="IG Icon">   <!-- ← your Instagram icon -->
+        <img src="Insta-05.png" alt="IG Icon">
         INSTAGRAM
     </a>
 
     <a href="https://www.tiktok.com/@jokerianuniverse" class="btn tiktok">
-        <img src="Tiktok-05.png" alt="TikTok Icon">  <!-- ← your TikTok icon -->
+        <img src="Tiktok-05.png" alt="TikTok Icon">
         TIKTOK
     </a>
 
 </div>
+</div>
 
-
-<!-- RIGHT SIDE IMAGE -->
-<img src="kids-02.png" class="right-image" alt="Kids Graphic">
-<h6>© Jokerian • All Rights Reserved</h6> 
+<h6>© Jokerian • All Rights Reserved</h6>
 
 </body>
 </html>
