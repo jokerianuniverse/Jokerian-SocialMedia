@@ -17,68 +17,70 @@
         box-sizing: border-box;
     }
 
+    html, body {
+        height: 100%;
+        overflow: hidden; /* Prevent scrolling */
+    }
+
     body {
-        min-height: 100vh;
         background: url("QR background-03-03.jpg") no-repeat center center fixed;
         background-size: cover;
-        /* Fallback if image fails */
         background-color: #f5f5f5;
         font-family: "Myriad Pro", Arial, sans-serif;
         color: #190635;
-        overflow-x: hidden;
     }
 
-    /* MAIN CONTAINER - Flexbox for layout control */
+    /* MAIN CONTAINER - Full height, no scroll */
     .main-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-height: 100vh;
-        padding: 2rem 1rem;
+        justify-content: space-between; /* Distribute content evenly */
+        height: 100vh;
+        padding: 1.5vh 4vw;
         position: relative;
     }
 
-    /* LEFT CONTENT AREA - Now responsive */
+    /* LEFT CONTENT AREA - Compact sizing */
     .left-container {
         text-align: center;
-        max-width: 600px;
-        z-index: 2;
-        margin-bottom: 2rem;
+        max-width: 90vw;
+        flex-shrink: 1;
     }
 
     .logo-image {
-        width: min(80vw, 300px);
+        width: min(50vw, 280px);
         height: auto;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1vh;
     }
 
     h1 {
-        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        font-size: clamp(1.4rem, 4vh, 2.2rem);
         font-weight: 600;
-        margin-bottom: 1rem;
+        margin-bottom: 0.8vh;
         font-family: "Britannic Bold", sans-serif;
         line-height: 1.2;
     }
 
     p {
-        font-size: clamp(1rem, 3vw, 1.3rem);
-        line-height: 1.6;
-        max-width: 500px;
-        margin: 0 auto 1.5rem;
+        font-size: clamp(0.9rem, 2.2vh, 1.2rem);
+        line-height: 1.4;
+        max-width: 600px;
+        margin: 0 auto;
     }
 
-    /* FOLLOW SECTION */
+    /* FOLLOW SECTION - Moved up with buttons and copyright together */
     .follow-section {
         text-align: center;
-        z-index: 2;
-        margin: 2rem 0;
+        flex-shrink: 0;
+        margin: 1vh 0;
     }
 
     .follow-section h2 {
-        font-size: clamp(1.2rem, 4vw, 1.5rem);
+        font-size: clamp(1rem, 2.5vh, 1.3rem);
         font-weight: 700;
         font-family: "Britannic Bold", sans-serif;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.5vh;
     }
 
     .btn-row {
@@ -86,11 +88,12 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
+        margin-bottom: 1vh;
     }
 
     .btn {
-        padding: 0.8rem 1.5rem;
-        font-size: clamp(0.9rem, 2.5vw, 1rem);
+        padding: 0.7rem 1.2rem;
+        font-size: clamp(0.85rem, 2vh, 1rem);
         font-weight: 600;
         border-radius: 25px;
         cursor: pointer;
@@ -104,8 +107,8 @@
     }
 
     .btn img {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
         object-fit: contain;
     }
 
@@ -122,113 +125,146 @@
         box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
-    /* RIGHT IMAGE - Responsive positioning */
-    .right-image {
-        width: min(90vw, 500px);
-        height: auto;
-        margin: 2rem auto;
-        display: block;
-        z-index: 1;
-    }
-
-    /* FOOTER */
-    h6 {
-        text-align: center;
-        margin-top: auto;
-        padding: 2rem 0 1rem;
-        font-size: 0.9rem;
+    /* COPYRIGHT - Now directly under buttons, compact */
+    .copyright {
+        font-size: clamp(0.75rem, 1.8vh, 0.9rem);
         opacity: 0.8;
-        z-index: 2;
+        margin-top: 0.5vh;
+        text-align: center;
     }
 
-    /* TABLET AND UP (768px+) */
-    @media (min-width: 768px) {
+    /* RIGHT IMAGE - Much bigger, fills remaining space */
+    .right-image {
+        width: min(85vw, 700px); /* Significantly larger */
+        height: auto;
+        max-height: 42vh; /* Prevent overflow */
+        object-fit: contain;
+        flex-shrink: 1;
+        margin: 0 auto;
+    }
+
+    /* TABLET ADJUSTMENTS */
+    @media (min-width: 768px) and (min-height: 600px) {
         .main-container {
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 3rem 5%;
+            padding: 2vh 5vw;
         }
 
         .left-container {
-            flex: 1 1 45%;
+            flex: 0 1 45%;
             text-align: left;
-            max-width: 500px;
+            max-width: 450px;
         }
 
         .logo-image {
-            width: min(35vw, 350px);
-            margin-left: 0;
-        }
-
-        h1 {
-            padding-left: 0;
-        }
-
-        p {
-            padding-left: 0;
-            margin-left: 0;
+            width: min(30vw, 320px);
         }
 
         .right-image {
-            flex: 1 1 45%;
-            width: min(45vw, 500px);
-            margin: 0;
+            flex: 0 1 50%;
+            width: min(55vw, 600px);
+            max-height: 55vh;
             order: 2;
         }
 
         .follow-section {
             flex: 1 1 100%;
             order: 3;
-            margin-top: 3rem;
+            margin-top: 2vh;
         }
 
-        .btn-row {
-            gap: 2rem;
-        }
-
-        h6 {
+        .copyright {
             flex: 1 1 100%;
             order: 4;
+            margin-top: 1vh;
         }
     }
 
-    /* DESKTOP (1024px+) */
-    @media (min-width: 1024px) {
+    /* DESKTOP - Even larger graphic */
+    @media (min-width: 1024px) and (min-height: 700px) {
         .main-container {
-            padding: 4rem 8%;
+            padding: 3vh 8vw;
         }
 
         .left-container {
-            max-width: 550px;
+            max-width: 500px;
         }
 
         .right-image {
-            width: min(40vw, 550px);
+            width: min(50vw, 750px);
+            max-height: 60vh;
         }
     }
 
-    /* LARGE SCREENS (1440px+) */
-    @media (min-width: 1440px) {
-        .main-container {
-            max-width: 1400px;
-            margin: 0 auto;
+    /* TALL SCREENS - Maximize graphic usage */
+    @media (min-height: 900px) {
+        .right-image {
+            max-height: 65vh;
         }
     }
 
-    /* MOBILE LANDSCAPE */
+    /* MOBILE LANDSCAPE - Compact mode */
     @media (max-height: 600px) and (orientation: landscape) {
         .main-container {
-            padding: 1rem;
+            flex-direction: row;
+            padding: 1vh 4vw;
+        }
+
+        .left-container {
+            flex: 0 1 40%;
+            text-align: left;
         }
 
         .logo-image {
-            width: 150px;
+            width: 120px;
+        }
+
+        h1 {
+            font-size: 1.3rem;
+        }
+
+        p {
+            font-size: 0.85rem;
         }
 
         .right-image {
-            width: 200px;
+            flex: 0 1 55%;
+            width: 45vw;
+            max-height: 75vh;
+        }
+
+        .follow-section {
+            flex: 1 1 100%;
+            order: 3;
+            margin-top: 1vh;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+        }
+
+        .copyright {
+            font-size: 0.7rem;
+        }
+    }
+
+    /* VERY SMALL MOBILE */
+    @media (max-width: 380px) {
+        h1 {
+            font-size: 1.2rem;
+        }
+        
+        p {
+            font-size: 0.85rem;
+        }
+        
+        .btn {
+            padding: 0.6rem 1rem;
+            font-size: 0.8rem;
         }
     }
 </style>
@@ -250,10 +286,10 @@
         </p>
     </div>
 
-    <!-- RIGHT SIDE IMAGE -->
+    <!-- RIGHT SIDE IMAGE - Much Larger -->
     <img src="kids-02.png" class="right-image" alt="Kids Graphic">
 
-    <!-- CENTER FOLLOW SECTION -->
+    <!-- FOLLOW SECTION + COPYRIGHT GROUPED TOGETHER -->
     <div class="follow-section">
         <h2>FOLLOW US & BE OUR FIRST HERO</h2>
         
@@ -268,9 +304,10 @@
                 TIKTOK
             </a>
         </div>
+        
+        <!-- COPYRIGHT MOVED UP HERE -->
+        <div class="copyright">© Jokerian • All Rights Reserved</div>
     </div>
-
-    <h6>© Jokerian • All Rights Reserved</h6>
 </div>
 
 </body>
