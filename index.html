@@ -44,7 +44,7 @@
     .top-section {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;    /* Left align */
+        align-items: flex-start;
         text-align: left;
         max-width: 600px;
         z-index: 2;
@@ -55,6 +55,7 @@
         width: 350px;
         height: auto;
         margin-bottom: 20px;
+        margin-left: 3px;          /* Slight shift right */
     }
 
     h1 {
@@ -64,22 +65,24 @@
         font-family: "Britannic Bold", sans-serif;
         line-height: 1.2;
         text-align: left;
+        padding-left: 3px;         /* Slight shift right */
     }
 
     p {
         font-size: 25px;
         line-height: 1.5;
         text-align: left;
+        padding-left: 3px;         /* Slight shift right */
     }
 
     /* BOTTOM SECTION - Centered at bottom */
     .bottom-section {
-        margin-top: auto;           /* Push to bottom */
-        margin-bottom: 3vh;         /* Space from bottom */
+        margin-top: auto;
+        margin-bottom: 3vh;
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;        /* Center everything */
+        align-items: center;
         z-index: 2;
     }
 
@@ -138,16 +141,16 @@
         text-align: center;
     }
 
-    /* KIDS GRAPHIC - Positioned on right, middle area */
+    /* KIDS GRAPHIC - BIGGER */
     .right-image {
         position: absolute;
-        right: 5%;
+        right: 3%;                 /* Closer to edge for bigger size */
         top: 45%;
         transform: translateY(-50%);
-        width: 45vw;
-        max-width: 600px;
+        width: 55vw;               /* Increased from 45vw */
+        max-width: 750px;          /* Increased from 600px */
         height: auto;
-        max-height: 70vh;
+        max-height: 80vh;          /* Increased from 70vh */
         object-fit: contain;
         z-index: 1;
         pointer-events: none;
@@ -168,8 +171,8 @@
             right: auto;
             top: auto;
             transform: none;
-            width: 70vw;
-            max-width: 450px;
+            width: 75vw;           /* Bigger on tablet too */
+            max-width: 500px;
             margin: 2vh auto;
         }
 
@@ -215,7 +218,7 @@
         }
 
         .right-image {
-            width: 80vw;
+            width: 85vw;           /* Bigger on mobile */
         }
     }
 
@@ -244,7 +247,7 @@
             right: auto;
             top: auto;
             transform: none;
-            width: 45vw;
+            width: 50vw;           /* Bigger in landscape */
         }
 
         .logo-image {
@@ -266,7 +269,7 @@
 <body>
 
 <div class="main-wrapper">
-    <!-- TOP SECTION - LEFT ALIGNED -->
+    <!-- TOP SECTION - LEFT ALIGNED with slight right padding -->
     <div class="top-section">
         <img src="Logosocial media-04-04.png" class="logo-image" alt="Jokerian Visual">
         
@@ -278,10 +281,10 @@
         </p>
     </div>
 
-    <!-- KIDS GRAPHIC - Right side -->
+    <!-- KIDS GRAPHIC - BIGGER -->
     <img src="kids-02.png" class="right-image" alt="Kids Graphic">
 
-    <!-- BOTTOM SECTION - CENTERED -->
+    <!-- BOTTOM SECTION - CENTERED (unchanged) -->
     <div class="bottom-section">
         <div class="follow-section">
             <h2>FOLLOW US & BE OUR FIRST HERO</h2>
