@@ -11,105 +11,87 @@
         src: local("Myriad Pro");
     }
 
-    * {
+    body {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
-    }
-
-    html, body {
-        height: 100%;
-        overflow: hidden; /* Prevent scrolling */
-    }
-
-    body {
-        background: url("QR background-03-03.jpg") no-repeat center center fixed;
-        background-size: cover;
-        background-color: #f5f5f5;
+        background: white;
         font-family: "Myriad Pro", Arial, sans-serif;
         color: #190635;
-    }
-
-    /* MAIN CONTAINER - Full height, no scroll */
-    .main-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between; /* Distribute content evenly */
-        height: 100vh;
-        padding: 1.5vh 4vw;
-        position: relative;
-    }
-
-    /* LEFT CONTENT AREA - Compact sizing */
-    .left-container {
         text-align: center;
-        max-width: 90vw;
-        flex-shrink: 1;
     }
 
+    /* HERO SECTION */
+    .hero {
+        padding: 40px 20px;
+    }
+
+    /* LOGO */
     .logo-image {
-        width: min(50vw, 280px);
-        height: auto;
-        margin-bottom: 1vh;
+        width: 100%;
+        max-width: 300px;
     }
 
+    /* IMAGE */
+    .right-image {
+        width: 100%;
+        max-width: 500px;
+
+        /* 🎯 Adjust position here */
+        margin-top: 20px;
+        transform: translateY(10px); /* change value if needed */
+    }
+
+    /* HEADLINE */
     h1 {
-        font-size: clamp(1.4rem, 4vh, 2.2rem);
-        font-weight: 600;
-        margin-bottom: 0.8vh;
-        font-family: "Britannic Bold", sans-serif;
+        font-size: clamp(36px, 6vw, 60px);
+        font-family: "Britannic Bold";
+        margin: 20px 0;
         line-height: 1.2;
     }
 
+    /* PARAGRAPH */
     p {
-        font-size: clamp(0.9rem, 2.2vh, 1.2rem);
-        line-height: 1.4;
-        max-width: 600px;
-        margin: 0 auto;
+        font-size: clamp(18px, 2.5vw, 26px);
+        max-width: 700px;
+        margin: auto;
+        line-height: 1.6;
     }
 
-    /* FOLLOW SECTION - Moved up with buttons and copyright together */
+    /* FOLLOW SECTION */
     .follow-section {
-        text-align: center;
-        flex-shrink: 0;
-        margin: 1vh 0;
+        margin-top: 50px;
+        padding: 20px;
     }
 
     .follow-section h2 {
-        font-size: clamp(1rem, 2.5vh, 1.3rem);
-        font-weight: 700;
-        font-family: "Britannic Bold", sans-serif;
-        margin-bottom: 1.5vh;
+        font-size: clamp(20px, 3vw, 28px);
+        font-family: "Britannic Bold";
+        margin-bottom: 20px;
     }
 
     .btn-row {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 1rem;
-        margin-bottom: 1vh;
+        gap: 20px;
+        flex-wrap: wrap;
     }
 
     .btn {
-        padding: 0.7rem 1.2rem;
-        font-size: clamp(0.85rem, 2vh, 1rem);
+        padding: 10px 20px;
+        font-size: 14px;
         font-weight: 600;
-        border-radius: 25px;
-        cursor: pointer;
+        border-radius: 20px;
         text-decoration: none;
         color: white;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        white-space: nowrap;
+        gap: 10px;
+        transition: 0.3s;
     }
 
     .btn img {
-        width: 20px;
-        height: 20px;
-        object-fit: contain;
+        width: 24px;
+        height: 24px;
     }
 
     .instagram {
@@ -122,193 +104,68 @@
 
     .btn:hover {
         transform: scale(1.05);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
-    /* COPYRIGHT - Now directly under buttons, compact */
-    .copyright {
-        font-size: clamp(0.75rem, 1.8vh, 0.9rem);
-        opacity: 0.8;
-        margin-top: 0.5vh;
-        text-align: center;
+    /* FOOTER */
+    h6 {
+        margin: 20px;
+        font-size: 12px;
     }
 
-    /* RIGHT IMAGE - Much bigger, fills remaining space */
-    .right-image {
-        width: min(85vw, 700px); /* Significantly larger */
-        height: auto;
-        max-height: 42vh; /* Prevent overflow */
-        object-fit: contain;
-        flex-shrink: 1;
-        margin: 0 auto;
-    }
-
-    /* TABLET ADJUSTMENTS */
-    @media (min-width: 768px) and (min-height: 600px) {
-        .main-container {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            padding: 2vh 5vw;
-        }
-
-        .left-container {
-            flex: 0 1 45%;
-            text-align: left;
-            max-width: 450px;
-        }
-
-        .logo-image {
-            width: min(30vw, 320px);
-        }
-
+    /* MOBILE TUNING */
+    @media (max-width: 768px) {
         .right-image {
-            flex: 0 1 50%;
-            width: min(55vw, 600px);
-            max-height: 55vh;
-            order: 2;
-        }
-
-        .follow-section {
-            flex: 1 1 100%;
-            order: 3;
-            margin-top: 2vh;
-        }
-
-        .copyright {
-            flex: 1 1 100%;
-            order: 4;
-            margin-top: 1vh;
+            max-width: 85%;
         }
     }
 
-    /* DESKTOP - Even larger graphic */
-    @media (min-width: 1024px) and (min-height: 700px) {
-        .main-container {
-            padding: 3vh 8vw;
-        }
-
-        .left-container {
-            max-width: 500px;
-        }
-
-        .right-image {
-            width: min(50vw, 750px);
-            max-height: 60vh;
-        }
-    }
-
-    /* TALL SCREENS - Maximize graphic usage */
-    @media (min-height: 900px) {
-        .right-image {
-            max-height: 65vh;
-        }
-    }
-
-    /* MOBILE LANDSCAPE - Compact mode */
-    @media (max-height: 600px) and (orientation: landscape) {
-        .main-container {
-            flex-direction: row;
-            padding: 1vh 4vw;
-        }
-
-        .left-container {
-            flex: 0 1 40%;
-            text-align: left;
-        }
-
-        .logo-image {
-            width: 120px;
-        }
-
-        h1 {
-            font-size: 1.3rem;
-        }
-
-        p {
-            font-size: 0.85rem;
-        }
-
-        .right-image {
-            flex: 0 1 55%;
-            width: 45vw;
-            max-height: 75vh;
-        }
-
-        .follow-section {
-            flex: 1 1 100%;
-            order: 3;
-            margin-top: 1vh;
-        }
-
-        .btn {
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
-        }
-
-        .copyright {
-            font-size: 0.7rem;
-        }
-    }
-
-    /* VERY SMALL MOBILE */
-    @media (max-width: 380px) {
-        h1 {
-            font-size: 1.2rem;
-        }
-        
-        p {
-            font-size: 0.85rem;
-        }
-        
-        .btn {
-            padding: 0.6rem 1rem;
-            font-size: 0.8rem;
-        }
-    }
 </style>
-
 </head>
 
 <body>
 
-<div class="main-container">
-    <!-- LEFT SIDE CONTENT -->
-    <div class="left-container">
-        <img src="Logosocial media-04-04.png" class="logo-image" alt="Jokerian Visual">
-        
-        <h1>Smart Fun for Every Age<br>Anytime, Anywhere</h1>
-        
-        <p>
-            Jokerian brings back real, screen-free entertainment through joyful, beautifully designed books,
-            games and puzzles crafted with love to spark curiosity and smiles.
-        </p>
-    </div>
+<div class="hero">
 
-    <!-- RIGHT SIDE IMAGE - Much Larger -->
+    <!-- LOGO -->
+    <img src="Logosocial media-04-04.png" class="logo-image" alt="Jokerian Logo">
+
+    <!-- IMAGE -->
     <img src="kids-02.png" class="right-image" alt="Kids Graphic">
 
-    <!-- FOLLOW SECTION + COPYRIGHT GROUPED TOGETHER -->
-    <div class="follow-section">
-        <h2>FOLLOW US & BE OUR FIRST HERO</h2>
-        
-        <div class="btn-row">
-            <a href="https://www.instagram.com/jokerianuniverse/" class="btn instagram" target="_blank" rel="noopener">
-                <img src="Insta-05.png" alt="Instagram">
-                INSTAGRAM
-            </a>
-            
-            <a href="https://www.tiktok.com/@jokerianuniverse" class="btn tiktok" target="_blank" rel="noopener">
-                <img src="Tiktok-05.png" alt="TikTok">
-                TIKTOK
-            </a>
-        </div>
-        
-        <!-- COPYRIGHT MOVED UP HERE -->
-        <div class="copyright">© Jokerian • All Rights Reserved</div>
+    <!-- TEXT UNDER IMAGE -->
+    <h1>
+        Smart Fun for Every Age<br>
+        Anytime, Anywhere
+    </h1>
+
+    <p>
+        Jokerian brings back real, screen-free entertainment through joyful, beautifully designed books,
+        games and puzzles crafted with love to spark curiosity and smiles.
+    </p>
+
+</div>
+
+<!-- FOLLOW SECTION -->
+<div class="follow-section">
+    <h2>FOLLOW US & BE OUR FIRST HERO</h2>
+
+    <div class="btn-row">
+
+        <a href="https://www.instagram.com/jokerianuniverse/" class="btn instagram">
+            <img src="Insta-05.png" alt="Instagram">
+            INSTAGRAM
+        </a>
+
+        <a href="https://www.tiktok.com/@jokerianuniverse" class="btn tiktok">
+            <img src="Tiktok-05.png" alt="TikTok">
+            TIKTOK
+        </a>
+
     </div>
 </div>
+
+<!-- FOOTER -->
+<h6>© Jokerian • All Rights Reserved</h6>
 
 </body>
 </html>
