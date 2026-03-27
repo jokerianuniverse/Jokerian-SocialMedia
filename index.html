@@ -33,23 +33,23 @@
     /* MAIN CONTAINER - Full screen, centered vertically */
     .main-wrapper {
         display: flex;
-        flex-direction: row;          /* Side by side layout */
-        align-items: center;        /* Vertical center */
-        justify-content: center;      /* Horizontal center for whole layout */
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
         height: 100vh;
         width: 100vw;
         position: relative;
-        gap: 5vw;                   /* Space between text and image */
+        gap: 5vw;
         padding: 0 5vw;
     }
 
-    /* CONTENT AREA - Left side, left-aligned text, but not too left */
+    /* CONTENT AREA - Left side, left-aligned text */
     .content-area {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;    /* Left align children */
-        text-align: left;           /* Left align text */
-        max-width: 550px;           /* Constrain width so it's not too wide */
+        align-items: flex-start;
+        text-align: left;
+        max-width: 550px;
         z-index: 2;
     }
 
@@ -75,10 +75,13 @@
         text-align: left;
     }
 
-    /* FOLLOW SECTION - Left aligned under text */
+    /* FOLLOW SECTION - CENTERED (separate from text alignment) */
     .follow-section {
         margin-top: 10px;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;      /* Center the section */
     }
 
     .follow-section h2 {
@@ -86,15 +89,17 @@
         font-weight: 700;
         font-family: "Britannic Bold", sans-serif;
         margin-bottom: 20px;
-        text-align: left;
+        text-align: center;       /* Center the heading */
+        width: 100%;
     }
 
     .btn-row {
         display: flex;
-        justify-content: flex-start; /* Left align buttons */
+        justify-content: center;  /* Center buttons */
         gap: 20px;
         margin-bottom: 15px;
         flex-wrap: wrap;
+        width: 100%;
     }
 
     .btn {
@@ -130,15 +135,16 @@
         transform: scale(1.05);
     }
 
-    /* COPYRIGHT - Left aligned under buttons */
+    /* COPYRIGHT - Centered */
     .copyright {
         font-size: 14px;
         opacity: 0.9;
         margin-top: 10px;
-        text-align: left;
+        text-align: center;       /* Center copyright */
+        width: 100%;
     }
 
-    /* KIDS GRAPHIC - Right side, large */
+    /* KIDS GRAPHIC - Right side */
     .right-image {
         width: 45vw;
         max-width: 650px;
@@ -148,7 +154,7 @@
         z-index: 1;
     }
 
-    /* TABLET - Stack vertically but keep left alignment */
+    /* TABLET */
     @media (max-width: 1024px) {
         .main-wrapper {
             flex-direction: column;
@@ -158,22 +164,13 @@
         }
 
         .content-area {
-            align-items: center;    /* Center on mobile */
+            align-items: center;
             text-align: center;
             max-width: 90vw;
         }
 
-        h1, p, .follow-section h2, .copyright {
+        h1, p {
             text-align: center;
-        }
-
-        .btn-row {
-            justify-content: center;
-        }
-
-        .right-image {
-            width: 70vw;
-            max-width: 450px;
         }
 
         .logo-image {
@@ -186,6 +183,11 @@
 
         p {
             font-size: 20px;
+        }
+
+        .right-image {
+            width: 70vw;
+            max-width: 450px;
         }
     }
 
@@ -222,7 +224,7 @@
         }
     }
 
-    /* LANDSCAPE MOBILE - Side by side compact */
+    /* LANDSCAPE MOBILE */
     @media (max-height: 600px) and (orientation: landscape) {
         .main-wrapper {
             flex-direction: row;
@@ -231,16 +233,11 @@
 
         .content-area {
             align-items: flex-start;
-            text-align: left;
             max-width: 45vw;
         }
 
-        h1, p, .follow-section h2, .copyright {
+        h1, p {
             text-align: left;
-        }
-
-        .btn-row {
-            justify-content: flex-start;
         }
 
         .logo-image {
@@ -266,7 +263,7 @@
 <body>
 
 <div class="main-wrapper">
-    <!-- LEFT CONTENT AREA - Left aligned but contained -->
+    <!-- LEFT CONTENT AREA -->
     <div class="content-area">
         <img src="Logosocial media-04-04.png" class="logo-image" alt="Jokerian Visual">
         
@@ -277,7 +274,7 @@
             games and puzzles crafted with love to spark curiosity and smiles.
         </p>
 
-        <!-- FOLLOW SECTION + COPYRIGHT -->
+        <!-- FOLLOW SECTION - CENTERED -->
         <div class="follow-section">
             <h2>FOLLOW US & BE OUR FIRST HERO</h2>
             
