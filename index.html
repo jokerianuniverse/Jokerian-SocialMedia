@@ -30,72 +30,76 @@
         color: #190635;
     }
 
-    /* MAIN CONTAINER - Full viewport, centered content */
+    /* MAIN CONTAINER - Perfectly centered content */
     .main-wrapper {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center; /* Centers vertically */
+        align-items: center;      /* Horizontal center */
+        justify-content: center;  /* Vertical center */
         height: 100vh;
         width: 100vw;
         position: relative;
-        padding: 2vh 4vw;
+        text-align: center;       /* Centers all text content */
     }
 
-    /* CONTENT AREA - Logo, Text, Buttons, Copyright grouped together */
+    /* CONTENT CLUSTER - Everything centered */
     .content-cluster {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center;      /* Center all children horizontally */
         text-align: center;
         z-index: 2;
-        max-width: 600px;
+        max-width: 700px;
+        padding: 0 20px;
     }
 
     .logo-image {
-        width: min(70vw, 350px);
+        width: 350px;            /* Fixed size as per your original */
         height: auto;
-        margin-bottom: 2vh;
+        margin-bottom: 20px;
     }
 
     h1 {
-        font-size: 40px; /* Preserved as requested */
+        font-size: 40px;         /* Your exact size */
         font-weight: 600;
-        margin-bottom: 2vh;
+        margin-bottom: 15px;
         font-family: "Britannic Bold", sans-serif;
         line-height: 1.2;
+        text-align: center;
     }
 
     p {
-        font-size: 25px; /* Preserved as requested */
+        font-size: 25px;         /* Your exact size */
         line-height: 1.5;
         max-width: 550px;
-        margin-bottom: 3vh;
+        margin-bottom: 30px;
+        text-align: center;
     }
 
-    /* FOLLOW SECTION - Tightly grouped */
+    /* FOLLOW SECTION - Centered under text */
     .follow-section {
-        margin-top: 2vh;
+        margin-top: 20px;
     }
 
     .follow-section h2 {
-        font-size: 25px; /* Preserved as requested */
+        font-size: 25px;         /* Your exact size */
         font-weight: 700;
         font-family: "Britannic Bold", sans-serif;
-        margin-bottom: 2vh;
+        margin-bottom: 20px;
+        text-align: center;
     }
 
     .btn-row {
         display: flex;
-        justify-content: center;
-        gap: 2vw;
-        margin-bottom: 1.5vh;
+        justify-content: center; /* Center buttons */
+        gap: 30px;
+        margin-bottom: 15px;
         flex-wrap: wrap;
     }
 
     .btn {
         padding: 12px 24px;
-        font-size: 15px; /* Preserved as requested */
+        font-size: 15px;         /* Your exact size */
         font-weight: 600;
         border-radius: 25px;
         cursor: pointer;
@@ -126,33 +130,34 @@
         transform: scale(1.05);
     }
 
-    /* COPYRIGHT - Directly under buttons, compact */
+    /* COPYRIGHT - Directly under buttons, centered */
     .copyright {
         font-size: 14px;
         opacity: 0.9;
-        margin-top: 1vh;
+        margin-top: 10px;
         text-align: center;
     }
 
-    /* KIDS GRAPHIC - Large, positioned right, overlapping background */
+    /* KIDS GRAPHIC - Large, positioned right as decorative element */
     .right-image {
         position: absolute;
-        right: 5vw;
+        right: 5%;               /* Position from right edge */
         top: 50%;
-        transform: translateY(-50%);
-        width: min(55vw, 700px); /* Much larger */
+        transform: translateY(-50%); /* Perfect vertical center */
+        width: 50vw;             /* Large but responsive */
+        max-width: 700px;
         height: auto;
-        max-height: 85vh; /* Prevent overflow */
+        max-height: 80vh;        /* Prevent overflow */
         object-fit: contain;
         z-index: 1;
-        pointer-events: none;
+        pointer-events: none;    /* Let clicks pass through */
     }
 
-    /* TABLET ADJUSTMENTS */
+    /* TABLET ADJUSTMENTS - Move graphic below content */
     @media (max-width: 1024px) {
         .main-wrapper {
-            justify-content: flex-start; /* Stack from top on smaller screens */
-            padding-top: 3vh;
+            justify-content: flex-start;
+            padding-top: 5vh;
         }
 
         .content-cluster {
@@ -160,98 +165,99 @@
         }
 
         .right-image {
-            position: relative; /* Remove absolute positioning */
+            position: relative;
             right: auto;
             top: auto;
             transform: none;
-            width: min(80vw, 500px);
-            max-height: 35vh;
-            margin-top: 2vh;
+            width: 80vw;
+            max-width: 500px;
+            margin-top: 30px;
+        }
+
+        .logo-image {
+            width: 300px;
         }
 
         h1 {
-            font-size: 32px;
+            font-size: 36px;
         }
 
         p {
-            font-size: 20px;
-        }
-
-        .follow-section h2 {
-            font-size: 20px;
+            font-size: 22px;
         }
     }
 
     /* MOBILE */
     @media (max-width: 600px) {
         .main-wrapper {
-            justify-content: flex-start;
-            padding-top: 2vh;
+            padding-top: 3vh;
         }
 
         .logo-image {
-            width: 200px;
+            width: 250px;
         }
 
         h1 {
-            font-size: 26px;
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .follow-section h2 {
+            font-size: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        .right-image {
+            width: 90vw;
+            margin-top: 20px;
+        }
+    }
+
+    /* SMALL MOBILE */
+    @media (max-width: 380px) {
+        h1 {
+            font-size: 24px;
         }
 
         p {
             font-size: 16px;
-            margin-bottom: 2vh;
-        }
-
-        .follow-section h2 {
-            font-size: 18px;
         }
 
         .btn {
-            padding: 10px 18px;
+            padding: 8px 16px;
             font-size: 13px;
         }
-
-        .btn img {
-            width: 20px;
-            height: 20px;
-        }
-
-        .right-image {
-            width: 85vw;
-            max-height: 30vh;
-        }
-
-        .copyright {
-            font-size: 12px;
-        }
     }
 
-    /* DESKTOP LARGE SCREENS - Maximize graphic */
-    @media (min-width: 1400px) {
-        .right-image {
-            width: min(50vw, 800px);
-            right: 8vw;
-        }
-    }
-
-    /* LANDSCAPE MOBILE - Side by side compact */
+    /* LANDSCAPE MOBILE - Side by side */
     @media (max-height: 600px) and (orientation: landscape) {
         .main-wrapper {
             flex-direction: row;
-            justify-content: space-between;
-            padding: 2vh 4vw;
+            justify-content: center;
+            gap: 5vw;
+            padding: 2vh 5vw;
         }
 
         .content-cluster {
-            align-items: flex-start;
-            text-align: left;
             max-width: 45vw;
         }
 
         .right-image {
             position: relative;
-            width: 45vw;
-            max-height: 80vh;
+            width: 40vw;
+            max-height: 85vh;
+        }
+
+        .logo-image {
+            width: 180px;
         }
 
         h1 {
@@ -301,7 +307,7 @@
         </div>
     </div>
 
-    <!-- LARGE KIDS GRAPHIC - Positioned right on desktop, below on mobile -->
+    <!-- KIDS GRAPHIC - Positioned absolutely on right for desktop -->
     <img src="kids-02.png" class="right-image" alt="Kids Graphic">
 </div>
 
