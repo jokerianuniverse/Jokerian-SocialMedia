@@ -18,161 +18,17 @@
     src: local("Britannic Bold");
 }
 
-/* RESET */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* BODY */
+/* Body */
 body {
     height: 100vh;
-    overflow: hidden; /* 🚀 prevent scroll */
+    overflow: hidden;
 
     background: url("QR background-03-03.jpg") no-repeat center center;
-    background-size: cover;
-
-    font-family: "Myriad Pro", Arial, sans-serif;
-    color: #190635;
-}
-
-/* MAIN LAYOUT */
-.main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    padding: 0 5vw;
-}
-
-/* LEFT SIDE */
-.left {
-    max-width: 600px;
-}
-
-.logo {
-    width: 250px;
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: clamp(28px, 3vw, 42px);
-    font-family: "Britannic Bold";
-    margin-bottom: 15px;
-}
-
-p {
-    font-size: clamp(16px, 1.2vw, 22px);
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-/* FOLLOW SECTION */
-.follow {
-    text-align: center;
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.follow h2 {
-    font-size: 20px;
-    font-family: "Britannic Bold";
-    margin-bottom: 15px;
-}
-
-.btn-row {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    padding: 8px 18px;
-    font-size: 14px;
-    font-weight: 600;
-
-    border-radius: 10px;
-    text-decoration: none;
-    color: white;
-
-    transition: 0.3s;
-}
-
-.btn img {
-    width: 18px;
-}
-
-/* BUTTON COLORS */
-.instagram {
-    background: linear-gradient(45deg, #f9a825, #e91e63, #9c27b0);
-}
-
-.tiktok {
-    background: #0a0014;
-}
-
-.btn:hover {
-    transform: scale(1.05);
-}
-
-/* RIGHT IMAGE */
-.right img {
-    width: clamp(300px, 40vw, 700px);
-}
-
-/* MOBILE RESPONSIVE */
-@media (max-width: 900px) {
-
-    body {
-        overflow: auto; /* allow scroll only on mobile */
-    }
-
-    .main {
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .right img {
-        width: 80%;
-    }
-
-    .follow {
-        position: static;
-        transform: none;
-        margin-top: 20px;
-    }
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="main">
-
-    <!-- LEFT -->
-    <div class="left">
-        <img src="Logosocial media-04-04.png" class="logo">
-
-        <h1>Smart Fun for Every Age<br>Anytime, Anywhere</h1>
-
-        <p>
-            Jokerian brings back real, screen-free entertainment through joyful,
-            beautifully designed books, games and puzzles crafted with love
-            to spark curiosity and smiles.
-        </p>
-    </div>
-
-    <!-- RIGHT -->
-    <div class="right">
-        <img
+    background-si
