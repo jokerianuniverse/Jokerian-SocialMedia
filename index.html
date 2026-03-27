@@ -37,48 +37,46 @@
         height: 100vh;
         width: 100vw;
         position: relative;
-        padding: 4vh 5vw;
     }
 
-    /* TOP SECTION - Left aligned */
+    /* TOP SECTION - Left aligned with original padding */
     .top-section {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-        max-width: 600px;
+        padding-top: 60px;
+        padding-left: 180px;
+        max-width: 900px;
         z-index: 2;
-        margin-bottom: 3vh;
     }
 
     .logo-image {
-        width: 350px;
+        width: 400px;
         height: auto;
         margin-bottom: 20px;
-        margin-left: 3px;          /* Slight shift right */
+        display: block;
     }
 
     h1 {
         font-size: 40px;
         font-weight: 600;
-        margin-bottom: 15px;
+        margin: 0 0 15px 0;
         font-family: "Britannic Bold", sans-serif;
         line-height: 1.2;
         text-align: left;
-        padding-left: 3px;         /* Slight shift right */
+        padding-left: 30px;
     }
 
     p {
         font-size: 25px;
+        margin: 0 0 25px 0;
+        padding-left: 30px;
+        max-width: 550px;
         line-height: 1.5;
         text-align: left;
-        padding-left: 3px;         /* Slight shift right */
     }
 
     /* BOTTOM SECTION - Centered at bottom */
     .bottom-section {
         margin-top: auto;
-        margin-bottom: 3vh;
+        margin-bottom: 5vh;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -97,16 +95,16 @@
     .btn-row {
         display: flex;
         justify-content: center;
-        gap: 20px;
+        gap: 50px;
         margin-bottom: 15px;
         flex-wrap: wrap;
     }
 
     .btn {
-        padding: 12px 24px;
+        padding: 10px 20px;
         font-size: 15px;
         font-weight: 600;
-        border-radius: 25px;
+        border-radius: 20px;
         cursor: pointer;
         text-decoration: none;
         color: white;
@@ -118,8 +116,8 @@
     }
 
     .btn img {
-        width: 24px;
-        height: 24px;
+        width: 30px;
+        height: 25px;
         object-fit: contain;
     }
 
@@ -132,25 +130,26 @@
     }
 
     .btn:hover {
-        transform: scale(1.05);
+        transform: scale(1.07);
     }
 
     .copyright {
         font-size: 14px;
         opacity: 0.9;
         text-align: center;
+        margin-top: 10px;
     }
 
     /* KIDS GRAPHIC - BIGGER */
     .right-image {
         position: absolute;
-        right: 3%;                 /* Closer to edge for bigger size */
-        top: 45%;
+        right: 2%;
+        top: 40%;
         transform: translateY(-50%);
-        width: 55vw;               /* Increased from 45vw */
-        max-width: 750px;          /* Increased from 600px */
+        width: 60vw;
+        max-width: 850px;
         height: auto;
-        max-height: 80vh;          /* Increased from 70vh */
+        max-height: 85vh;
         object-fit: contain;
         z-index: 1;
         pointer-events: none;
@@ -158,12 +157,25 @@
 
     /* TABLET */
     @media (max-width: 1024px) {
-        .main-wrapper {
-            padding: 3vh 4vw;
+        .top-section {
+            padding-top: 40px;
+            padding-left: 60px;
+            max-width: 90vw;
         }
 
-        .top-section {
-            max-width: 90vw;
+        .logo-image {
+            width: 300px;
+        }
+
+        h1 {
+            font-size: 32px;
+            padding-left: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            padding-left: 20px;
+            max-width: 450px;
         }
 
         .right-image {
@@ -171,41 +183,36 @@
             right: auto;
             top: auto;
             transform: none;
-            width: 75vw;           /* Bigger on tablet too */
-            max-width: 500px;
+            width: 80vw;
+            max-width: 550px;
             margin: 2vh auto;
         }
 
-        .logo-image {
-            width: 280px;
-        }
-
-        h1 {
-            font-size: 32px;
-        }
-
-        p {
-            font-size: 20px;
+        .btn-row {
+            gap: 30px;
         }
     }
 
     /* MOBILE */
     @media (max-width: 600px) {
-        .main-wrapper {
-            padding: 2vh 3vw;
-            overflow-y: auto;
+        .top-section {
+            padding-top: 30px;
+            padding-left: 20px;
         }
 
         .logo-image {
-            width: 220px;
+            width: 250px;
         }
 
         h1 {
             font-size: 26px;
+            padding-left: 15px;
         }
 
         p {
             font-size: 17px;
+            padding-left: 15px;
+            max-width: 90vw;
         }
 
         .follow-section h2 {
@@ -213,12 +220,21 @@
         }
 
         .btn {
-            padding: 10px 18px;
+            padding: 8px 16px;
             font-size: 14px;
         }
 
+        .btn img {
+            width: 24px;
+            height: 20px;
+        }
+
+        .btn-row {
+            gap: 20px;
+        }
+
         .right-image {
-            width: 85vw;           /* Bigger on mobile */
+            width: 90vw;
         }
     }
 
@@ -229,11 +245,13 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
+            padding: 0 5vw;
         }
 
         .top-section {
             flex: 0 1 45%;
-            margin-bottom: 0;
+            padding-top: 20px;
+            padding-left: 40px;
         }
 
         .bottom-section {
@@ -247,19 +265,22 @@
             right: auto;
             top: auto;
             transform: none;
-            width: 50vw;           /* Bigger in landscape */
+            width: 50vw;
+            max-width: none;
         }
 
         .logo-image {
-            width: 160px;
+            width: 180px;
         }
 
         h1 {
             font-size: 22px;
+            padding-left: 20px;
         }
 
         p {
             font-size: 15px;
+            padding-left: 20px;
         }
     }
 </style>
@@ -269,7 +290,7 @@
 <body>
 
 <div class="main-wrapper">
-    <!-- TOP SECTION - LEFT ALIGNED with slight right padding -->
+    <!-- TOP SECTION - Left aligned with original padding values -->
     <div class="top-section">
         <img src="Logosocial media-04-04.png" class="logo-image" alt="Jokerian Visual">
         
@@ -284,7 +305,7 @@
     <!-- KIDS GRAPHIC - BIGGER -->
     <img src="kids-02.png" class="right-image" alt="Kids Graphic">
 
-    <!-- BOTTOM SECTION - CENTERED (unchanged) -->
+    <!-- BOTTOM SECTION - Centered at bottom (unchanged) -->
     <div class="bottom-section">
         <div class="follow-section">
             <h2>FOLLOW US & BE OUR FIRST HERO</h2>
