@@ -6,29 +6,272 @@
 <title>Jokerian</title>
 
 <style>
+    @font-face {
+        font-family: "Myriad Pro";
+        src: local("Myriad Pro");
+    }
 
-/* Fonts */
-@font-face {
-    font-family: "Myriad Pro";
-    src: local("Myriad Pro");
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-@font-face {
-    font-family: "Britannic Bold";
-    src: local("Britannic Bold");
-}
+    body {
+        min-height: 100vh;
+        background: url("QR background-03-03.jpg") no-repeat center center fixed;
+        background-size: cover;
+        /* Fallback if image fails */
+        background-color: #f5f5f5;
+        font-family: "Myriad Pro", Arial, sans-serif;
+        color: #190635;
+        overflow-x: hidden;
+    }
 
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    /* MAIN CONTAINER - Flexbox for layout control */
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+        position: relative;
+    }
 
-/* Body */
-body {
-    height: 100vh;
-    overflow: hidden;
+    /* LEFT CONTENT AREA - Now responsive */
+    .left-container {
+        text-align: center;
+        max-width: 600px;
+        z-index: 2;
+        margin-bottom: 2rem;
+    }
 
-    background: url("QR background-03-03.jpg") no-repeat center center;
-    background-si
+    .logo-image {
+        width: min(80vw, 300px);
+        height: auto;
+        margin-bottom: 1.5rem;
+    }
+
+    h1 {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-family: "Britannic Bold", sans-serif;
+        line-height: 1.2;
+    }
+
+    p {
+        font-size: clamp(1rem, 3vw, 1.3rem);
+        line-height: 1.6;
+        max-width: 500px;
+        margin: 0 auto 1.5rem;
+    }
+
+    /* FOLLOW SECTION */
+    .follow-section {
+        text-align: center;
+        z-index: 2;
+        margin: 2rem 0;
+    }
+
+    .follow-section h2 {
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
+        font-weight: 700;
+        font-family: "Britannic Bold", sans-serif;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+        font-weight: 600;
+        border-radius: 25px;
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .btn img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+
+    .instagram {
+        background: linear-gradient(45deg, #f9a825, #e91e63, #9c27b0);
+    }
+
+    .tiktok {
+        background: #0a0014;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* RIGHT IMAGE - Responsive positioning */
+    .right-image {
+        width: min(90vw, 500px);
+        height: auto;
+        margin: 2rem auto;
+        display: block;
+        z-index: 1;
+    }
+
+    /* FOOTER */
+    h6 {
+        text-align: center;
+        margin-top: auto;
+        padding: 2rem 0 1rem;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        z-index: 2;
+    }
+
+    /* TABLET AND UP (768px+) */
+    @media (min-width: 768px) {
+        .main-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3rem 5%;
+        }
+
+        .left-container {
+            flex: 1 1 45%;
+            text-align: left;
+            max-width: 500px;
+        }
+
+        .logo-image {
+            width: min(35vw, 350px);
+            margin-left: 0;
+        }
+
+        h1 {
+            padding-left: 0;
+        }
+
+        p {
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        .right-image {
+            flex: 1 1 45%;
+            width: min(45vw, 500px);
+            margin: 0;
+            order: 2;
+        }
+
+        .follow-section {
+            flex: 1 1 100%;
+            order: 3;
+            margin-top: 3rem;
+        }
+
+        .btn-row {
+            gap: 2rem;
+        }
+
+        h6 {
+            flex: 1 1 100%;
+            order: 4;
+        }
+    }
+
+    /* DESKTOP (1024px+) */
+    @media (min-width: 1024px) {
+        .main-container {
+            padding: 4rem 8%;
+        }
+
+        .left-container {
+            max-width: 550px;
+        }
+
+        .right-image {
+            width: min(40vw, 550px);
+        }
+    }
+
+    /* LARGE SCREENS (1440px+) */
+    @media (min-width: 1440px) {
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+    }
+
+    /* MOBILE LANDSCAPE */
+    @media (max-height: 600px) and (orientation: landscape) {
+        .main-container {
+            padding: 1rem;
+        }
+
+        .logo-image {
+            width: 150px;
+        }
+
+        .right-image {
+            width: 200px;
+        }
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="main-container">
+    <!-- LEFT SIDE CONTENT -->
+    <div class="left-container">
+        <img src="Logosocial media-04-04.png" class="logo-image" alt="Jokerian Visual">
+        
+        <h1>Smart Fun for Every Age<br>Anytime, Anywhere</h1>
+        
+        <p>
+            Jokerian brings back real, screen-free entertainment through joyful, beautifully designed books,
+            games and puzzles crafted with love to spark curiosity and smiles.
+        </p>
+    </div>
+
+    <!-- RIGHT SIDE IMAGE -->
+    <img src="kids-02.png" class="right-image" alt="Kids Graphic">
+
+    <!-- CENTER FOLLOW SECTION -->
+    <div class="follow-section">
+        <h2>FOLLOW US & BE OUR FIRST HERO</h2>
+        
+        <div class="btn-row">
+            <a href="https://www.instagram.com/jokerianuniverse/" class="btn instagram" target="_blank" rel="noopener">
+                <img src="Insta-05.png" alt="Instagram">
+                INSTAGRAM
+            </a>
+            
+            <a href="https://www.tiktok.com/@jokerianuniverse" class="btn tiktok" target="_blank" rel="noopener">
+                <img src="Tiktok-05.png" alt="TikTok">
+                TIKTOK
+            </a>
+        </div>
+    </div>
+
+    <h6>© Jokerian • All Rights Reserved</h6>
+</div>
+
+</body>
+</html>
