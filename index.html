@@ -19,7 +19,7 @@
 
     html, body {
         height: 100%;
-        overflow: hidden; /* Prevent scrolling */
+        overflow: hidden;
     }
 
     body {
@@ -30,70 +30,72 @@
         color: #190635;
     }
 
-    /* MAIN CONTAINER - Full height, no scroll */
-    .main-container {
+    /* MAIN CONTAINER - Full viewport, centered content */
+    .main-wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between; /* Distribute content evenly */
+        justify-content: center; /* Centers vertically */
         height: 100vh;
-        padding: 1.5vh 4vw;
+        width: 100vw;
         position: relative;
+        padding: 2vh 4vw;
     }
 
-    /* LEFT CONTENT AREA - Compact sizing */
-    .left-container {
+    /* CONTENT AREA - Logo, Text, Buttons, Copyright grouped together */
+    .content-cluster {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
-        max-width: 90vw;
-        flex-shrink: 1;
+        z-index: 2;
+        max-width: 600px;
     }
 
     .logo-image {
-        width: min(50vw, 280px);
+        width: min(70vw, 350px);
         height: auto;
-        margin-bottom: 1vh;
+        margin-bottom: 2vh;
     }
 
     h1 {
-        font-size: clamp(1.4rem, 4vh, 2.2rem);
+        font-size: 40px; /* Preserved as requested */
         font-weight: 600;
-        margin-bottom: 0.8vh;
+        margin-bottom: 2vh;
         font-family: "Britannic Bold", sans-serif;
         line-height: 1.2;
     }
 
     p {
-        font-size: clamp(0.9rem, 2.2vh, 1.2rem);
-        line-height: 1.4;
-        max-width: 600px;
-        margin: 0 auto;
+        font-size: 25px; /* Preserved as requested */
+        line-height: 1.5;
+        max-width: 550px;
+        margin-bottom: 3vh;
     }
 
-    /* FOLLOW SECTION - Moved up with buttons and copyright together */
+    /* FOLLOW SECTION - Tightly grouped */
     .follow-section {
-        text-align: center;
-        flex-shrink: 0;
-        margin: 1vh 0;
+        margin-top: 2vh;
     }
 
     .follow-section h2 {
-        font-size: clamp(1rem, 2.5vh, 1.3rem);
+        font-size: 25px; /* Preserved as requested */
         font-weight: 700;
         font-family: "Britannic Bold", sans-serif;
-        margin-bottom: 1.5vh;
+        margin-bottom: 2vh;
     }
 
     .btn-row {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 1rem;
-        margin-bottom: 1vh;
+        gap: 2vw;
+        margin-bottom: 1.5vh;
+        flex-wrap: wrap;
     }
 
     .btn {
-        padding: 0.7rem 1.2rem;
-        font-size: clamp(0.85rem, 2vh, 1rem);
+        padding: 12px 24px;
+        font-size: 15px; /* Preserved as requested */
         font-weight: 600;
         border-radius: 25px;
         cursor: pointer;
@@ -101,14 +103,14 @@
         color: white;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        gap: 10px;
+        transition: transform 0.3s ease;
         white-space: nowrap;
     }
 
     .btn img {
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
         object-fit: contain;
     }
 
@@ -122,149 +124,142 @@
 
     .btn:hover {
         transform: scale(1.05);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
-    /* COPYRIGHT - Now directly under buttons, compact */
+    /* COPYRIGHT - Directly under buttons, compact */
     .copyright {
-        font-size: clamp(0.75rem, 1.8vh, 0.9rem);
-        opacity: 0.8;
-        margin-top: 0.5vh;
+        font-size: 14px;
+        opacity: 0.9;
+        margin-top: 1vh;
         text-align: center;
     }
 
-    /* RIGHT IMAGE - Much bigger, fills remaining space */
+    /* KIDS GRAPHIC - Large, positioned right, overlapping background */
     .right-image {
-        width: min(85vw, 700px); /* Significantly larger */
+        position: absolute;
+        right: 5vw;
+        top: 50%;
+        transform: translateY(-50%);
+        width: min(55vw, 700px); /* Much larger */
         height: auto;
-        max-height: 42vh; /* Prevent overflow */
+        max-height: 85vh; /* Prevent overflow */
         object-fit: contain;
-        flex-shrink: 1;
-        margin: 0 auto;
+        z-index: 1;
+        pointer-events: none;
     }
 
     /* TABLET ADJUSTMENTS */
-    @media (min-width: 768px) and (min-height: 600px) {
-        .main-container {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            padding: 2vh 5vw;
+    @media (max-width: 1024px) {
+        .main-wrapper {
+            justify-content: flex-start; /* Stack from top on smaller screens */
+            padding-top: 3vh;
         }
 
-        .left-container {
-            flex: 0 1 45%;
-            text-align: left;
-            max-width: 450px;
-        }
-
-        .logo-image {
-            width: min(30vw, 320px);
+        .content-cluster {
+            max-width: 90vw;
         }
 
         .right-image {
-            flex: 0 1 50%;
-            width: min(55vw, 600px);
-            max-height: 55vh;
-            order: 2;
-        }
-
-        .follow-section {
-            flex: 1 1 100%;
-            order: 3;
+            position: relative; /* Remove absolute positioning */
+            right: auto;
+            top: auto;
+            transform: none;
+            width: min(80vw, 500px);
+            max-height: 35vh;
             margin-top: 2vh;
         }
 
-        .copyright {
-            flex: 1 1 100%;
-            order: 4;
-            margin-top: 1vh;
+        h1 {
+            font-size: 32px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        .follow-section h2 {
+            font-size: 20px;
         }
     }
 
-    /* DESKTOP - Even larger graphic */
-    @media (min-width: 1024px) and (min-height: 700px) {
-        .main-container {
-            padding: 3vh 8vw;
-        }
-
-        .left-container {
-            max-width: 500px;
-        }
-
-        .right-image {
-            width: min(50vw, 750px);
-            max-height: 60vh;
-        }
-    }
-
-    /* TALL SCREENS - Maximize graphic usage */
-    @media (min-height: 900px) {
-        .right-image {
-            max-height: 65vh;
-        }
-    }
-
-    /* MOBILE LANDSCAPE - Compact mode */
-    @media (max-height: 600px) and (orientation: landscape) {
-        .main-container {
-            flex-direction: row;
-            padding: 1vh 4vw;
-        }
-
-        .left-container {
-            flex: 0 1 40%;
-            text-align: left;
+    /* MOBILE */
+    @media (max-width: 600px) {
+        .main-wrapper {
+            justify-content: flex-start;
+            padding-top: 2vh;
         }
 
         .logo-image {
-            width: 120px;
+            width: 200px;
         }
 
         h1 {
-            font-size: 1.3rem;
+            font-size: 26px;
         }
 
         p {
-            font-size: 0.85rem;
+            font-size: 16px;
+            margin-bottom: 2vh;
+        }
+
+        .follow-section h2 {
+            font-size: 18px;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            font-size: 13px;
+        }
+
+        .btn img {
+            width: 20px;
+            height: 20px;
         }
 
         .right-image {
-            flex: 0 1 55%;
-            width: 45vw;
-            max-height: 75vh;
-        }
-
-        .follow-section {
-            flex: 1 1 100%;
-            order: 3;
-            margin-top: 1vh;
-        }
-
-        .btn {
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
+            width: 85vw;
+            max-height: 30vh;
         }
 
         .copyright {
-            font-size: 0.7rem;
+            font-size: 12px;
         }
     }
 
-    /* VERY SMALL MOBILE */
-    @media (max-width: 380px) {
+    /* DESKTOP LARGE SCREENS - Maximize graphic */
+    @media (min-width: 1400px) {
+        .right-image {
+            width: min(50vw, 800px);
+            right: 8vw;
+        }
+    }
+
+    /* LANDSCAPE MOBILE - Side by side compact */
+    @media (max-height: 600px) and (orientation: landscape) {
+        .main-wrapper {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 2vh 4vw;
+        }
+
+        .content-cluster {
+            align-items: flex-start;
+            text-align: left;
+            max-width: 45vw;
+        }
+
+        .right-image {
+            position: relative;
+            width: 45vw;
+            max-height: 80vh;
+        }
+
         h1 {
-            font-size: 1.2rem;
+            font-size: 24px;
         }
-        
+
         p {
-            font-size: 0.85rem;
-        }
-        
-        .btn {
-            padding: 0.6rem 1rem;
-            font-size: 0.8rem;
+            font-size: 16px;
         }
     }
 </style>
@@ -273,9 +268,9 @@
 
 <body>
 
-<div class="main-container">
-    <!-- LEFT SIDE CONTENT -->
-    <div class="left-container">
+<div class="main-wrapper">
+    <!-- CENTERED CONTENT CLUSTER -->
+    <div class="content-cluster">
         <img src="Logosocial media-04-04.png" class="logo-image" alt="Jokerian Visual">
         
         <h1>Smart Fun for Every Age<br>Anytime, Anywhere</h1>
@@ -284,30 +279,30 @@
             Jokerian brings back real, screen-free entertainment through joyful, beautifully designed books,
             games and puzzles crafted with love to spark curiosity and smiles.
         </p>
-    </div>
 
-    <!-- RIGHT SIDE IMAGE - Much Larger -->
-    <img src="kids-02.png" class="right-image" alt="Kids Graphic">
-
-    <!-- FOLLOW SECTION + COPYRIGHT GROUPED TOGETHER -->
-    <div class="follow-section">
-        <h2>FOLLOW US & BE OUR FIRST HERO</h2>
-        
-        <div class="btn-row">
-            <a href="https://www.instagram.com/jokerianuniverse/" class="btn instagram" target="_blank" rel="noopener">
-                <img src="Insta-05.png" alt="Instagram">
-                INSTAGRAM
-            </a>
+        <!-- FOLLOW SECTION + COPYRIGHT GROUPED TOGETHER -->
+        <div class="follow-section">
+            <h2>FOLLOW US & BE OUR FIRST HERO</h2>
             
-            <a href="https://www.tiktok.com/@jokerianuniverse" class="btn tiktok" target="_blank" rel="noopener">
-                <img src="Tiktok-05.png" alt="TikTok">
-                TIKTOK
-            </a>
+            <div class="btn-row">
+                <a href="https://www.instagram.com/jokerianuniverse/" class="btn instagram" target="_blank" rel="noopener">
+                    <img src="Insta-05.png" alt="Instagram">
+                    INSTAGRAM
+                </a>
+                
+                <a href="https://www.tiktok.com/@jokerianuniverse" class="btn tiktok" target="_blank" rel="noopener">
+                    <img src="Tiktok-05.png" alt="TikTok">
+                    TIKTOK
+                </a>
+            </div>
+            
+            <!-- COPYRIGHT DIRECTLY UNDER BUTTONS -->
+            <div class="copyright">© Jokerian • All Rights Reserved</div>
         </div>
-        
-        <!-- COPYRIGHT MOVED UP HERE -->
-        <div class="copyright">© Jokerian • All Rights Reserved</div>
     </div>
+
+    <!-- LARGE KIDS GRAPHIC - Positioned right on desktop, below on mobile -->
+    <img src="kids-02.png" class="right-image" alt="Kids Graphic">
 </div>
 
 </body>
