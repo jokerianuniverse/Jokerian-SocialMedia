@@ -19,7 +19,7 @@
 
     html, body {
         height: 100%;
-        overflow: hidden;
+        overflow: hidden; /* Prevent scrolling */
     }
 
     body {
@@ -30,76 +30,70 @@
         color: #190635;
     }
 
-    /* MAIN CONTAINER - Perfectly centered content */
-    .main-wrapper {
+    /* MAIN CONTAINER - Full height, no scroll */
+    .main-container {
         display: flex;
         flex-direction: column;
-        align-items: center;      /* Horizontal center */
-        justify-content: center;  /* Vertical center */
+        align-items: center;
+        justify-content: space-between; /* Distribute content evenly */
         height: 100vh;
-        width: 100vw;
+        padding: 1.5vh 4vw;
         position: relative;
-        text-align: center;       /* Centers all text content */
     }
 
-    /* CONTENT CLUSTER - Everything centered */
-    .content-cluster {
-        display: flex;
-        flex-direction: column;
-        align-items: center;      /* Center all children horizontally */
+    /* LEFT CONTENT AREA - Compact sizing */
+    .left-container {
         text-align: center;
-        z-index: 2;
-        max-width: 700px;
-        padding: 0 20px;
+        max-width: 90vw;
+        flex-shrink: 1;
     }
 
     .logo-image {
-        width: 350px;            /* Fixed size as per your original */
+        width: min(50vw, 280px);
         height: auto;
-        margin-bottom: 20px;
+        margin-bottom: 1vh;
     }
 
     h1 {
-        font-size: 40px;         /* Your exact size */
+        font-size: clamp(1.4rem, 4vh, 2.2rem);
         font-weight: 600;
-        margin-bottom: 15px;
+        margin-bottom: 0.8vh;
         font-family: "Britannic Bold", sans-serif;
         line-height: 1.2;
-        text-align: center;
     }
 
     p {
-        font-size: 25px;         /* Your exact size */
-        line-height: 1.5;
-        max-width: 550px;
-        margin-bottom: 30px;
-        text-align: center;
+        font-size: clamp(0.9rem, 2.2vh, 1.2rem);
+        line-height: 1.4;
+        max-width: 600px;
+        margin: 0 auto;
     }
 
-    /* FOLLOW SECTION - Centered under text */
+    /* FOLLOW SECTION - Moved up with buttons and copyright together */
     .follow-section {
-        margin-top: 20px;
+        text-align: center;
+        flex-shrink: 0;
+        margin: 1vh 0;
     }
 
     .follow-section h2 {
-        font-size: 25px;         /* Your exact size */
+        font-size: clamp(1rem, 2.5vh, 1.3rem);
         font-weight: 700;
         font-family: "Britannic Bold", sans-serif;
-        margin-bottom: 20px;
-        text-align: center;
+        margin-bottom: 1.5vh;
     }
 
     .btn-row {
         display: flex;
-        justify-content: center; /* Center buttons */
-        gap: 30px;
-        margin-bottom: 15px;
         flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1vh;
     }
 
     .btn {
-        padding: 12px 24px;
-        font-size: 15px;         /* Your exact size */
+        padding: 0.7rem 1.2rem;
+        font-size: clamp(0.85rem, 2vh, 1rem);
         font-weight: 600;
         border-radius: 25px;
         cursor: pointer;
@@ -107,14 +101,14 @@
         color: white;
         display: flex;
         align-items: center;
-        gap: 10px;
-        transition: transform 0.3s ease;
+        gap: 0.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         white-space: nowrap;
     }
 
     .btn img {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
         object-fit: contain;
     }
 
@@ -128,144 +122,149 @@
 
     .btn:hover {
         transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
-    /* COPYRIGHT - Directly under buttons, centered */
+    /* COPYRIGHT - Now directly under buttons, compact */
     .copyright {
-        font-size: 14px;
-        opacity: 0.9;
-        margin-top: 10px;
+        font-size: clamp(0.75rem, 1.8vh, 0.9rem);
+        opacity: 0.8;
+        margin-top: 0.5vh;
         text-align: center;
     }
 
-    /* KIDS GRAPHIC - Large, positioned right as decorative element */
+    /* RIGHT IMAGE - Much bigger, fills remaining space */
     .right-image {
-        position: absolute;
-        right: 5%;               /* Position from right edge */
-        top: 50%;
-        transform: translateY(-50%); /* Perfect vertical center */
-        width: 50vw;             /* Large but responsive */
-        max-width: 700px;
+        width: min(85vw, 700px); /* Significantly larger */
         height: auto;
-        max-height: 80vh;        /* Prevent overflow */
+        max-height: 42vh; /* Prevent overflow */
         object-fit: contain;
-        z-index: 1;
-        pointer-events: none;    /* Let clicks pass through */
+        flex-shrink: 1;
+        margin: 0 auto;
     }
 
-    /* TABLET ADJUSTMENTS - Move graphic below content */
-    @media (max-width: 1024px) {
-        .main-wrapper {
-            justify-content: flex-start;
-            padding-top: 5vh;
-        }
-
-        .content-cluster {
-            max-width: 90vw;
-        }
-
-        .right-image {
-            position: relative;
-            right: auto;
-            top: auto;
-            transform: none;
-            width: 80vw;
-            max-width: 500px;
-            margin-top: 30px;
-        }
-
-        .logo-image {
-            width: 300px;
-        }
-
-        h1 {
-            font-size: 36px;
-        }
-
-        p {
-            font-size: 22px;
-        }
-    }
-
-    /* MOBILE */
-    @media (max-width: 600px) {
-        .main-wrapper {
-            padding-top: 3vh;
-        }
-
-        .logo-image {
-            width: 250px;
-        }
-
-        h1 {
-            font-size: 28px;
-        }
-
-        p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        .follow-section h2 {
-            font-size: 20px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            font-size: 14px;
-        }
-
-        .right-image {
-            width: 90vw;
-            margin-top: 20px;
-        }
-    }
-
-    /* SMALL MOBILE */
-    @media (max-width: 380px) {
-        h1 {
-            font-size: 24px;
-        }
-
-        p {
-            font-size: 16px;
-        }
-
-        .btn {
-            padding: 8px 16px;
-            font-size: 13px;
-        }
-    }
-
-    /* LANDSCAPE MOBILE - Side by side */
-    @media (max-height: 600px) and (orientation: landscape) {
-        .main-wrapper {
+    /* TABLET ADJUSTMENTS */
+    @media (min-width: 768px) and (min-height: 600px) {
+        .main-container {
             flex-direction: row;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 5vw;
+            align-items: center;
             padding: 2vh 5vw;
         }
 
-        .content-cluster {
-            max-width: 45vw;
-        }
-
-        .right-image {
-            position: relative;
-            width: 40vw;
-            max-height: 85vh;
+        .left-container {
+            flex: 0 1 45%;
+            text-align: left;
+            max-width: 450px;
         }
 
         .logo-image {
-            width: 180px;
+            width: min(30vw, 320px);
+        }
+
+        .right-image {
+            flex: 0 1 50%;
+            width: min(55vw, 600px);
+            max-height: 55vh;
+            order: 2;
+        }
+
+        .follow-section {
+            flex: 1 1 100%;
+            order: 3;
+            margin-top: 2vh;
+        }
+
+        .copyright {
+            flex: 1 1 100%;
+            order: 4;
+            margin-top: 1vh;
+        }
+    }
+
+    /* DESKTOP - Even larger graphic */
+    @media (min-width: 1024px) and (min-height: 700px) {
+        .main-container {
+            padding: 3vh 8vw;
+        }
+
+        .left-container {
+            max-width: 500px;
+        }
+
+        .right-image {
+            width: min(50vw, 750px);
+            max-height: 60vh;
+        }
+    }
+
+    /* TALL SCREENS - Maximize graphic usage */
+    @media (min-height: 900px) {
+        .right-image {
+            max-height: 65vh;
+        }
+    }
+
+    /* MOBILE LANDSCAPE - Compact mode */
+    @media (max-height: 600px) and (orientation: landscape) {
+        .main-container {
+            flex-direction: row;
+            padding: 1vh 4vw;
+        }
+
+        .left-container {
+            flex: 0 1 40%;
+            text-align: left;
+        }
+
+        .logo-image {
+            width: 120px;
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 1.3rem;
         }
 
         p {
-            font-size: 16px;
+            font-size: 0.85rem;
+        }
+
+        .right-image {
+            flex: 0 1 55%;
+            width: 45vw;
+            max-height: 75vh;
+        }
+
+        .follow-section {
+            flex: 1 1 100%;
+            order: 3;
+            margin-top: 1vh;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+        }
+
+        .copyright {
+            font-size: 0.7rem;
+        }
+    }
+
+    /* VERY SMALL MOBILE */
+    @media (max-width: 380px) {
+        h1 {
+            font-size: 1.2rem;
+        }
+        
+        p {
+            font-size: 0.85rem;
+        }
+        
+        .btn {
+            padding: 0.6rem 1rem;
+            font-size: 0.8rem;
         }
     }
 </style>
